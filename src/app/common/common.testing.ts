@@ -28,10 +28,10 @@ export class ObservableMediaFake {
   }
 }
 export class MatIconRegistryFake {
-  _document = document;
+  fakeDocument = document;
 
   addSvgIcon(iconName: string, url: SafeResourceUrl): this {
-    //this.addSvgIcon('lemon', 'lemon.svg');
+    // this.addSvgIcon('lemon', 'lemon.svg');
     return this;
   }
 
@@ -40,8 +40,8 @@ export class MatIconRegistryFake {
   }
 
   private _svgElementFromString(str: string): SVGElement {
-    if (this._document || typeof document !== 'undefined') {
-      const div = (this._document || document).createElement('DIV');
+    if (this.fakeDocument || typeof document !== 'undefined') {
+      const div = (this.fakeDocument || document).createElement('DIV');
       div.innerHTML = str;
 
       const svg = div.querySelector('svg') as SVGElement;
