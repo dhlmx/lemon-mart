@@ -1,6 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import {
+  commonTestingModules,
+  commonTestingProviders,
+  MatIconRegistryFake,
+  DomSanitizerFake,
+  ObservableMediaFake,
+} from '../common/common.testing';
+import { MediaObserver } from '@angular/flex-layout';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +18,15 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [
+        commonTestingModules
+      ],
+      declarations: [ HomeComponent ],
+      providers: commonTestingProviders.concat([
+        { provide: MediaObserver, useClass: ObservableMediaFake },
+        { provide: MatIconRegistry, useClass: MatIconRegistryFake },
+        { provide: DomSanitizer, useClass: DomSanitizerFake },
+      ])
     })
     .compileComponents();
   }));

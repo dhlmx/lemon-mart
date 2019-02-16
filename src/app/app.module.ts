@@ -8,10 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
-import { ManagerModule } from './manager/manager.module';
-import { InventoryModule } from './inventory/inventory.module';
-import { PosModule } from './pos/pos.module';
-import { UserModule } from './user/user.module';
+
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -32,10 +29,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
-    ManagerModule,
-    InventoryModule,
-    PosModule,
-    UserModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,

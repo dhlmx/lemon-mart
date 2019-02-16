@@ -10,6 +10,16 @@ import {
 } from '@angular/material';
 
 import { SideNavComponent } from './side-nav.component';
+import {
+  commonTestingModules,
+  commonTestingProviders,
+  MatIconRegistryFake,
+  DomSanitizerFake,
+  ObservableMediaFake,
+} from '../common/common.testing';
+import { MediaObserver } from '@angular/flex-layout';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 describe('SideNavComponent', () => {
   let component: SideNavComponent;
@@ -17,7 +27,6 @@ describe('SideNavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SideNavComponent],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
@@ -26,7 +35,16 @@ describe('SideNavComponent', () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-      ]
+        commonTestingModules
+      ],
+      declarations: [
+        SideNavComponent
+      ],
+      providers: commonTestingProviders.concat([
+        { provide: MediaObserver, useClass: ObservableMediaFake },
+        { provide: MatIconRegistry, useClass: MatIconRegistryFake },
+        { provide: DomSanitizer, useClass: DomSanitizerFake },
+      ])
     }).compileComponents();
   }));
 

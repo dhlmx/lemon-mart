@@ -88,10 +88,10 @@
               "src/assets",
               "src/favicon.ico",
               "src/apple-touch-icon.png",
-              "src/favicon/favicon-32x32.png",
+              "src/favicon-32x32.png",
               "src/favicon-16x16.png",
-              "src/favicon/site.webmanifest",
-              "src/favicon/safari-pinned-tab.svg"
+              "src/safari-pinned-tab.svg",
+              "src/site.webmanifest"
             ]
           }
         },
