@@ -1,42 +1,68 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule } from './material.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MaterialModule } from './material.module';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+import { NgModule } from '@angular/core';
 import 'hammerjs';
 
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { SimpleDialogComponent } from './common/simple-dialog/simple-dialog.component';
+
+import { AuthGuard } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
+import { UIService } from './common/ui.service';
+import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
+    NavigationMenuComponent,
     PageNotFoundComponent,
-    SideNavComponent
+    SimpleDialogComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule,
+    BrowserModule,
     FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
     LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
+    MaterialModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthService,
+    UIService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

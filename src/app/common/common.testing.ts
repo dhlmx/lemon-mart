@@ -14,6 +14,23 @@ const FAKE_SVGS = {
   lemon: '<svg><path id="lemon" name="lemon"></path></svg>',
 };
 
+export const commonTestingProviders: any[] = [
+  {
+    provide: AuthService,
+    useClass: AuthServiceFake
+  },
+  UiService
+];
+
+export const commonTestingModules: any[] = [
+  FormsModule,
+  ReactiveFormsModule,
+  MaterialModule,
+  NoopAnimationsModule,
+  HttpClientTestingModule,
+  RouterTestingModule
+];
+
 export class ObservableMediaFake {
   isActive(query: string): boolean {
     return false;
@@ -62,16 +79,3 @@ export class DomSanitizerFake {
     return value ? value.toString() : null;
   }
 }
-
-export const commonTestingProviders: any[] = [
-  // intentionally left blank
-];
-
-export const commonTestingModules: any[] = [
-  FormsModule,
-  ReactiveFormsModule,
-  MaterialModule,
-  NoopAnimationsModule,
-  HttpClientTestingModule,
-  RouterTestingModule
-];

@@ -7,7 +7,7 @@ import {
   MatIconRegistryFake,
   DomSanitizerFake,
   ObservableMediaFake,
-} from '../../common/common.testing';
+} from './../common/common.testing';
 import { MediaObserver } from '@angular/flex-layout';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';

@@ -13,7 +13,5 @@ export class ManagerHomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

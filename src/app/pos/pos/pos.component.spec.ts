@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PosComponent } from './pos.component';
+import { PosComponent } from '../../pos/pos/pos.component';
 import {
   commonTestingModules,
   commonTestingProviders,
   MatIconRegistryFake,
   DomSanitizerFake,
   ObservableMediaFake,
-} from '../common/common.testing';
+} from '../../common/common.testing';
 import { MediaObserver } from '@angular/flex-layout';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
