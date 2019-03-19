@@ -42,4 +42,4 @@ import {
     MatTooltipModule
   ]
 })
-export class MaterialModule { }
+export class AppMaterialModule { }

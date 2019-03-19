@@ -8,28 +8,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SecurityContext } from '@angular/platform-browser/src/security/dom_sanitization_service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, Subscription, of } from 'rxjs';
-import { MaterialModule } from '../material.module';
+import { AppMaterialModule } from '../app-material.module';
+
+import { UIService } from './ui.service';
+import { AuthService } from '../auth/auth.service';
+import { AuthServiceFake } from '../auth/auth.service.fake';
 
 const FAKE_SVGS = {
   lemon: '<svg><path id="lemon" name="lemon"></path></svg>',
 };
-
-export const commonTestingProviders: any[] = [
-  {
-    provide: AuthService,
-    useClass: AuthServiceFake
-  },
-  UiService
-];
-
-export const commonTestingModules: any[] = [
-  FormsModule,
-  ReactiveFormsModule,
-  MaterialModule,
-  NoopAnimationsModule,
-  HttpClientTestingModule,
-  RouterTestingModule
-];
 
 export class ObservableMediaFake {
   isActive(query: string): boolean {
@@ -40,10 +27,15 @@ export class ObservableMediaFake {
     return of({} as MediaChange);
   }
 
-  subscribe(next?: (value: MediaChange) => void, error?: (error: any) => void, complete?: () => void): Subscription {
+  subscribe(
+    next?: (value: MediaChange) => void,
+    error?: (error: any) => void,
+    complete?: () => void
+  ): Subscription {
     return new Subscription();
   }
 }
+
 export class MatIconRegistryFake {
   fakeDocument = document;
 
@@ -70,6 +62,7 @@ export class MatIconRegistryFake {
     }
   }
 }
+
 export class DomSanitizerFake {
   bypassSecurityTrustResourceUrl(url: string): SafeResourceUrl {
     return {} as SafeResourceUrl;
@@ -79,3 +72,20 @@ export class DomSanitizerFake {
     return value ? value.toString() : null;
   }
 }
+
+export const commonTestingProviders: any[] = [
+  {
+    provide: AuthService,
+    useClass: AuthServiceFake
+  },
+  UIService
+];
+
+export const commonTestingModules: any[] = [
+  FormsModule,
+  ReactiveFormsModule,
+  AppMaterialModule,
+  NoopAnimationsModule,
+  HttpClientTestingModule,
+  RouterTestingModule
+];

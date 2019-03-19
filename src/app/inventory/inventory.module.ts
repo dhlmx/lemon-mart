@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../material.module';
+import { AppMaterialModule } from '../app-material.module';
 
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { InventoryComponent } from './inventory.component';
@@ -20,7 +20,7 @@ import { CategoriesComponent } from './categories/categories.component';
   imports: [
     CommonModule,
     InventoryRoutingModule,
-    MaterialModule
+    AppMaterialModule
   ]
 })
 export class InventoryModule { }

@@ -12,7 +12,7 @@ export class AuthServiceFake implements IAuthService {
     return of(defaultAuthStatus);
   }
 
-  logout(): BehaviorSubject<IAuthStatus> {}
+  logout() {}
 
   getToken(): string {
     return '';

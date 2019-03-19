@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MaterialModule } from './material.module';
+import { AppMaterialModule } from './app-material.module';
 import {
   MatButtonModule,
   MatIconModule,
@@ -46,7 +46,7 @@ import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
     HttpClientModule,
     LayoutModule,
     MatButtonModule,
-    MaterialModule,
+    AppMaterialModule,
     MatIconModule,
     MatListModule,
     MatSidenavModule,

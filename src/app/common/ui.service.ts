@@ -28,7 +28,7 @@ export class UIService {
       SimpleDialogComponent,
       customConfig || {
         width: '300px',
-        data: { title, content, okText, cancelText }
+        data: { title: title, content: content, okText: okText, cancelText: cancelText }
       }
     );
 

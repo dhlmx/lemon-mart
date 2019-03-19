@@ -12,7 +12,7 @@ import { Role } from './role.enum';
 export interface IAuthService {
   authStatus: BehaviorSubject<IAuthStatus>;
   login(email: string, password: string): Observable<IAuthStatus>;
-  logout(): BehaviorSubject<IAuthStatus>;
+  logout();
   getToken(): string;
 }
 
